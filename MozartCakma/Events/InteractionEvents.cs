@@ -47,7 +47,7 @@ public class InteractionEvents
 
             await e.Interaction.EditOriginalResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
             
-            main.Container.VoiceChannelManagerService.PlayAudio(e.Guild.Id,e.Channel,$"https://www.youtube.com/watch?v={Uri.EscapeUriString(videoDetails.VideoId)}");
+            main.Container.VoiceChannelService.PlayAudio(e.Guild.Id,e.Channel,$"https://www.youtube.com/watch?v={Uri.EscapeUriString(videoDetails.VideoId)}");
             
         }
         catch (Exception ex)

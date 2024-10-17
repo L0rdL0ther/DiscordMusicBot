@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/l4me/RiderProjects/ConsoleApp3/MozartCakma/MozartCakma.csproj": {}
+    "/home/l4me/RiderProjects/DiscordMusicBot/MozartCakma/MozartCakma.csproj": {}
   },
   "projects": {
-    "/home/l4me/RiderProjects/ConsoleApp3/MozartCakma/MozartCakma.csproj": {
+    "/home/l4me/RiderProjects/DiscordMusicBot/MozartCakma/MozartCakma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/l4me/RiderProjects/ConsoleApp3/MozartCakma/MozartCakma.csproj",
+        "projectUniqueName": "/home/l4me/RiderProjects/DiscordMusicBot/MozartCakma/MozartCakma.csproj",
         "projectName": "MozartCakma",
-        "projectPath": "/home/l4me/RiderProjects/ConsoleApp3/MozartCakma/MozartCakma.csproj",
+        "projectPath": "/home/l4me/RiderProjects/DiscordMusicBot/MozartCakma/MozartCakma.csproj",
         "packagesPath": "/home/l4me/.nuget/packages/",
-        "outputPath": "/home/l4me/RiderProjects/ConsoleApp3/MozartCakma/obj/",
+        "outputPath": "/home/l4me/RiderProjects/DiscordMusicBot/MozartCakma/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/l4me/.nuget/NuGet/NuGet.Config"

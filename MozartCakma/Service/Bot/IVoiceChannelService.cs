@@ -4,7 +4,7 @@ using DSharpPlus.Entities;
 
 namespace MozartCakma.Service.Bot;
 
-public interface IVoiceChannelManagerService
+public interface IVoiceChannelService
 {
     public Task JoinChannel(DiscordMember member, DiscordGuild guild,DiscordClient client);
     public void DisconnectChannel();

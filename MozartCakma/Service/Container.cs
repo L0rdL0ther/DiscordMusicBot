@@ -5,7 +5,7 @@ namespace MozartCakma.Service;
 
 public class Container
 {
-    public VoiceChannelManagerService VoiceChannelManagerService = new();
+    public VoiceChannelService VoiceChannelService = new();
     public YoutubeService YoutubeService = new();
     public static Container Instance { get; } = new();
 }

@@ -9,13 +9,13 @@ public class Command : BaseCommandModule
 {
     public Program Main = Program.Instance;
 
-    public VoiceChannelManagerService
-        VoiceChannelManagerService = Program.Instance.Container.VoiceChannelManagerService;
+    public VoiceChannelService
+        VoiceChannelService = Program.Instance.Container.VoiceChannelService;
     
     [Command("search")]
     public async Task Search(CommandContext ctx, [RemainingText] string queryT)
     {
-        await VoiceChannelManagerService.JoinChannel(ctx.Member,ctx.Guild,ctx.Client);
+        await VoiceChannelService.JoinChannel(ctx.Member,ctx.Guild,ctx.Client);
 
         if (ctx.Member?.VoiceState == null || ctx.Member.VoiceState.Channel! == null)
         {
@@ -63,7 +63,7 @@ public class Command : BaseCommandModule
             await ctx.RespondAsync("You are not in a voice channel.");
             return;
         }
-        await Main.Container.VoiceChannelManagerService.JoinChannel(ctx.Member,ctx.Guild,ctx.Client);
+        await Main.Container.VoiceChannelService.JoinChannel(ctx.Member,ctx.Guild,ctx.Client);
         await Task.Delay(1000);
         
         if (queryT.StartsWith("https://www.youtube.com/watch?v="))
@@ -75,7 +75,7 @@ public class Command : BaseCommandModule
                 Color = DiscordColor.Green
             };
             ctx.Message.RespondAsync(embed1);
-            await Main.Container.VoiceChannelManagerService.PlayAudio(ctx.Guild.Id, ctx.Channel, queryT);
+            await Main.Container.VoiceChannelService.PlayAudio(ctx.Guild.Id, ctx.Channel, queryT);
         }
         else
         {
@@ -89,7 +89,7 @@ public class Command : BaseCommandModule
                 Color = DiscordColor.Green
             };
             ctx.Message.RespondAsync(embed);
-            await Main.Container.VoiceChannelManagerService.PlayAudio(ctx.Guild.Id, ctx.Channel, "https://www.youtube.com/watch?v="+video.VideoId);
+            await Main.Container.VoiceChannelService.PlayAudio(ctx.Guild.Id, ctx.Channel, "https://www.youtube.com/watch?v="+video.VideoId);
             
         }
         
@@ -103,7 +103,7 @@ public class Command : BaseCommandModule
             await ctx.RespondAsync("You are not in a voice channel.");
             return;
         }
-        Main.Container.VoiceChannelManagerService.StopAudio(ctx.Guild);
+        Main.Container.VoiceChannelService.StopAudio(ctx.Guild);
         var embed1 = new DiscordEmbedBuilder
         {
             Title = $"Stopped",

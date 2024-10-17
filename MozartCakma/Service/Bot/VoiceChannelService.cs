@@ -6,7 +6,7 @@ using DSharpPlus.VoiceNext;
 
 namespace MozartCakma.Service.Bot;
 
-public class VoiceChannelManagerService : IVoiceChannelManagerService
+public class VoiceChannelService : IVoiceChannelService
 {
     private readonly Dictionary<ulong, Task<VoiceNextConnection>>
         connections = new();
