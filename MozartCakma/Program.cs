@@ -38,7 +38,8 @@ public class Program
             {
                 eventType
                     .HandleMessageCreated(messageEvents.MessageCreatedHandler)
-                    .HandleComponentInteractionCreated(interactionEvents.ComponentInteractionCreated);
+                    .HandleComponentInteractionCreated(interactionEvents.ComponentInteractionCreated)
+                    .HandleVoiceStateUpdated(Instance.Container.VoiceChannelService.HandleVoiceStateUpdated);
             });
 
         builder.UseVoiceNext(new VoiceNextConfiguration

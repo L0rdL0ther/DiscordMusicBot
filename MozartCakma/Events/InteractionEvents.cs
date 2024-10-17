@@ -1,5 +1,4 @@
 using DSharpPlus;
-using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 
@@ -22,7 +21,7 @@ public class InteractionEvents
                 new DiscordInteractionResponseBuilder().WithContent("No selection made."));
             return;
         }
-        
+
         await e.Interaction.CreateResponseAsync(DiscordInteractionResponseType.UpdateMessage,
             new DiscordInteractionResponseBuilder().WithContent("Its can take a while minute"));
 
@@ -46,9 +45,9 @@ public class InteractionEvents
             };
 
             await e.Interaction.EditOriginalResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
-            
-            main.Container.VoiceChannelService.PlayAudio(e.Guild.Id,e.Channel,$"https://www.youtube.com/watch?v={Uri.EscapeUriString(videoDetails.VideoId)}");
-            
+
+            main.Container.VoiceChannelService.PlayAudio(e.Guild, e.Channel,
+                $"https://www.youtube.com/watch?v={Uri.EscapeUriString(videoDetails.VideoId)}");
         }
         catch (Exception ex)
         {

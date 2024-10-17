@@ -1,65 +1,68 @@
 using System.Diagnostics;
 using DSharpPlus;
-using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
+using DSharpPlus.EventArgs;
 using DSharpPlus.VoiceNext;
 
 namespace MozartCakma.Service.Bot;
 
 public class VoiceChannelService : IVoiceChannelService
 {
-    private readonly Dictionary<ulong, Task<VoiceNextConnection>>
-        connections = new();
+    private readonly Dictionary<ulong, VoiceNextConnection>
+        _connections = new();
+
+    public Dictionary<ulong, Process> DownloadProccess = new();
 
     public Dictionary<ulong, Process> FfmpegProcesses = new();
-    public Dictionary<ulong, Process> DownloadProccess = new();
-    public async Task JoinChannel(DiscordMember member, DiscordGuild guild,DiscordClient client)
+    
+    //public Dictionary<ulong, Stream> AudioProcesses = new();
+
+    public async Task JoinChannel(DiscordMember member, DiscordGuild guild, DiscordClient client)
     {
         var bot = guild.Members[client.CurrentUser.Id];
-        if (!connections.TryGetValue(guild.Id, out var connection) || connection == null)
+        if (!_connections.TryGetValue(guild.Id, out var connection) || connection == null)
         {
-            connection = member.VoiceState.Channel.ConnectAsync();
-            connections[guild.Id] = connection;
+            connection = await member.VoiceState.Channel.ConnectAsync();
+            _connections[guild.Id] = connection;
             return;
         }
         if(bot.VoiceState == null || bot.VoiceState.Channel.Id == null)
-            connections[guild.Id] = member.VoiceState.Channel.ConnectAsync();
+            _connections[guild.Id] = await member.VoiceState.Channel.ConnectAsync();
         if (member.VoiceState.Channel.Id == bot.VoiceState.Channel.Id)
         {
             return;
         }
-        connection.Result.Disconnect();
-        connections[guild.Id] = member.VoiceState.Channel.ConnectAsync();
-        
+        connection.Disconnect();
+        _connections[guild.Id] = await member.VoiceState.Channel.ConnectAsync();
     }
 
-    public void DisconnectChannel()
+    public void DisconnectChannel(DiscordGuild guild)
     {
-        throw new NotImplementedException();
+        var connection = _connections[guild.Id];
+        if (connection != null){ connection.Disconnect(); _connections.Remove(guild.Id); }
     }
 
-    public async Task PlayAudio(ulong guildId,DiscordChannel channel, string link)
+    public async Task PlayAudio(DiscordGuild guild, DiscordChannel channel, string link)
     {
-        var connection = connections[guildId];
+        var connection = _connections[guild.Id];
         if (connection != null)
         {
-            var transmit = connection.Result.GetTransmitSink();
+            var transmit = connection.GetTransmitSink();
             await transmit.FlushAsync();
-            var pcm = await ConvertAudioToPcm(guildId,channel, link);
+            var pcm = await ConvertAudioToPcm(guild.Id, channel, link);
             await pcm.CopyToAsync(transmit);
             await pcm.DisposeAsync();
-            await transmit.FlushAsync();
         }
     }
 
     public void StopAudio(DiscordGuild guild)
     {
-        var connection = connections[guild.Id];
+        var connection = _connections[guild.Id];
         if (connection != null)
         {
-            var transmit = connection.Result.GetTransmitSink();
+            var transmit = connection.GetTransmitSink();
             transmit.FlushAsync();
-            
+
             if (FfmpegProcesses.ContainsKey(guild.Id))
                 FfmpegProcesses[guild.Id].Kill();
             if (DownloadProccess.ContainsKey(guild.Id))
@@ -69,38 +72,101 @@ public class VoiceChannelService : IVoiceChannelService
 
     public void ResumeAudio(DiscordGuild guild)
     {
-        var connection = connections[guild.Id];
+        var connection = _connections[guild.Id];
         if (connection != null)
         {
-            var transmit = connection.Result.GetTransmitSink();
+            var transmit = connection.GetTransmitSink();
             transmit.ResumeAsync();
         }
     }
 
     public void PauseAudio(DiscordGuild guild)
     {
-        var connection = connections[guild.Id];
+        var connection = _connections[guild.Id];
         if (connection != null)
         {
-            var transmit = connection.Result.GetTransmitSink();
+            var transmit = connection.GetTransmitSink();
             transmit.Pause();
         }
     }
 
-    public async Task<Stream> ConvertAudioToPcm(ulong guildId,DiscordChannel channel, string url)
+    #region Events
+
+    public async Task HandleVoiceStateUpdated(DiscordClient client, VoiceStateUpdatedEventArgs e)
     {
+        if (true)
+            return;
+        /*
+        if (!_connections.ContainsKey(e.Guild.Id) || _connections[e.Guild.Id] == null)
+            return;
+        if (e.User.Id != client.CurrentUser.Id) return;
+
+        var connection = _connections[e.Guild.Id];
+        var guildId = e.Guild.Id;
         
-        string downloadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Downloads");
+        Console.WriteLine("ho32323gggh");
+        if (e.After.Channel != null && e.Before.Channel != null && e.After.Channel.Id != e.Before.Channel.Id)
+        {
+            Console.WriteLine("hogggh");
+            Console.WriteLine("hogg2323sadadgh");
+            // Asenkron bağlantıyı bekle
+            Console.WriteLine("ho11111gggh");
+
+            await Task.Delay(TimeSpan.FromSeconds(4));
+            Console.WriteLine(connection.TargetChannel.Id);
+            
+            var transmit = _connections[guildId].GetTransmitSink();
+            Console.WriteLine("hogg444444gh");
+            
+            await transmit.FlushAsync();
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            var pcm = AudioProcesses[guildId];
+            Console.WriteLine("w da sdwd");
+            await pcm.CopyToAsync(transmit);
+            Console.WriteLine("e aqwe asw df");
+            await pcm.DisposeAsync();
+            Console.WriteLine(" wdfqa fwwwwww");
+        }
+        */
+        
+        /*
+ *
+ * else if (e.After.Channel == null && connections.ContainsKey(guildId))
+   {
+       var transmit = connections[guildId].Result.GetTransmitSink();
+       await transmit.FlushAsync();
+
+       if (FfmpegProcesses.ContainsKey(guildId))
+           FfmpegProcesses[guildId].Kill();
+
+       if (DownloadProccess.ContainsKey(guildId))
+           DownloadProccess[guildId].Kill();
+
+       connections[guildId].Result.Disconnect();
+       connections[guildId] = null;
+   }
+ */
+        
+    }
+    
+
+    #endregion
+
+    #region FileFormat
+
+    public async Task<Stream> ConvertAudioToPcm(ulong guildId, DiscordChannel channel, string url)
+    {
+        var downloadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Downloads");
         Directory.CreateDirectory(downloadsDirectory);
-        string randomFileName = Path.GetRandomFileName() + ".mp3";
-        string outputFilePath = Path.Combine(downloadsDirectory, randomFileName);
-        
+        var randomFileName = Path.GetRandomFileName() + ".mp3";
+        var outputFilePath = Path.Combine(downloadsDirectory, randomFileName);
+
         if (FfmpegProcesses.ContainsKey(guildId))
             FfmpegProcesses[guildId].Kill();
 
         if (DownloadProccess.ContainsKey(guildId))
             DownloadProccess[guildId].Kill();
-        
+
         Console.WriteLine("Trying to install");
         var ytDlp = Process.Start(new ProcessStartInfo
         {
@@ -111,7 +177,7 @@ public class VoiceChannelService : IVoiceChannelService
             UseShellExecute = false,
             CreateNoWindow = false // Pencere açmasın
         });
-        
+
         DownloadProccess[guildId] = ytDlp;
         await Task.Run(() => ytDlp?.WaitForExit());
         var ffmpeg = Process.Start(new ProcessStartInfo
@@ -132,11 +198,14 @@ public class VoiceChannelService : IVoiceChannelService
                 Title = "Error",
                 Description = "Invalid Link",
                 Color = DiscordColor.Red
-            }));    
+            }));
+
+        //AudioProcesses[guildId] = ffmpeg.StandardOutput.BaseStream;
         
         return ffmpeg.StandardOutput.BaseStream;
     }
 
+    #endregion
 }
 
 /*
