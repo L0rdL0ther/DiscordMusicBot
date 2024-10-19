@@ -14,10 +14,10 @@ public class VoiceChannelService : IVoiceChannelService
     public Dictionary<ulong, Process> DownloadProccess = new();
 
     public Dictionary<ulong, Process> FfmpegProcesses = new();
-    
+
     //public Dictionary<ulong, Stream> AudioProcesses = new();
 
-    public async Task JoinChannel(DiscordMember member, DiscordGuild guild, DiscordClient client)
+    public override async Task JoinChannel(DiscordMember member, DiscordGuild guild, DiscordClient client)
     {
         var bot = guild.Members[client.CurrentUser.Id];
         if (!_connections.TryGetValue(guild.Id, out var connection) || connection == null)
@@ -26,23 +26,25 @@ public class VoiceChannelService : IVoiceChannelService
             _connections[guild.Id] = connection;
             return;
         }
-        if(bot.VoiceState == null || bot.VoiceState.Channel.Id == null)
+
+        if (bot.VoiceState == null || bot.VoiceState.Channel.Id == null)
             _connections[guild.Id] = await member.VoiceState.Channel.ConnectAsync();
-        if (member.VoiceState.Channel.Id == bot.VoiceState.Channel.Id)
-        {
-            return;
-        }
+        if (member.VoiceState.Channel.Id == bot.VoiceState.Channel.Id) return;
         connection.Disconnect();
         _connections[guild.Id] = await member.VoiceState.Channel.ConnectAsync();
     }
 
-    public void DisconnectChannel(DiscordGuild guild)
+    public override void DisconnectChannel(DiscordGuild guild)
     {
         var connection = _connections[guild.Id];
-        if (connection != null){ connection.Disconnect(); _connections.Remove(guild.Id); }
+        if (connection != null)
+        {
+            connection.Disconnect();
+            _connections.Remove(guild.Id);
+        }
     }
 
-    public async Task PlayAudio(DiscordGuild guild, DiscordChannel channel, string link)
+    public override async Task PlayAudio(DiscordGuild guild, DiscordChannel channel, string link)
     {
         var connection = _connections[guild.Id];
         if (connection != null)
@@ -55,14 +57,15 @@ public class VoiceChannelService : IVoiceChannelService
         }
     }
 
-    public void StopAudio(DiscordGuild guild)
+    public override void StopAudio(DiscordGuild guild)
     {
         var connection = _connections[guild.Id];
         if (connection != null)
         {
             var transmit = connection.GetTransmitSink();
             transmit.FlushAsync();
-
+            connection.Disconnect();
+            _connections.Remove(guild.Id);
             if (FfmpegProcesses.ContainsKey(guild.Id))
                 FfmpegProcesses[guild.Id].Kill();
             if (DownloadProccess.ContainsKey(guild.Id))
@@ -70,7 +73,7 @@ public class VoiceChannelService : IVoiceChannelService
         }
     }
 
-    public void ResumeAudio(DiscordGuild guild)
+    public override void ResumeAudio(DiscordGuild guild)
     {
         var connection = _connections[guild.Id];
         if (connection != null)
@@ -80,7 +83,7 @@ public class VoiceChannelService : IVoiceChannelService
         }
     }
 
-    public void PauseAudio(DiscordGuild guild)
+    public override void PauseAudio(DiscordGuild guild)
     {
         var connection = _connections[guild.Id];
         if (connection != null)
@@ -94,41 +97,22 @@ public class VoiceChannelService : IVoiceChannelService
 
     public async Task HandleVoiceStateUpdated(DiscordClient client, VoiceStateUpdatedEventArgs e)
     {
-        if (true)
-            return;
-        /*
         if (!_connections.ContainsKey(e.Guild.Id) || _connections[e.Guild.Id] == null)
             return;
         if (e.User.Id != client.CurrentUser.Id) return;
-
         var connection = _connections[e.Guild.Id];
         var guildId = e.Guild.Id;
-        
-        Console.WriteLine("ho32323gggh");
         if (e.After.Channel != null && e.Before.Channel != null && e.After.Channel.Id != e.Before.Channel.Id)
         {
-            Console.WriteLine("hogggh");
-            Console.WriteLine("hogg2323sadadgh");
-            // Asenkron bağlantıyı bekle
-            Console.WriteLine("ho11111gggh");
-
-            await Task.Delay(TimeSpan.FromSeconds(4));
-            Console.WriteLine(connection.TargetChannel.Id);
-            
-            var transmit = _connections[guildId].GetTransmitSink();
-            Console.WriteLine("hogg444444gh");
-            
-            await transmit.FlushAsync();
-            await Task.Delay(TimeSpan.FromSeconds(1));
-            var pcm = AudioProcesses[guildId];
-            Console.WriteLine("w da sdwd");
-            await pcm.CopyToAsync(transmit);
-            Console.WriteLine("e aqwe asw df");
-            await pcm.DisposeAsync();
-            Console.WriteLine(" wdfqa fwwwwww");
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            StopAudio(e.Guild);
         }
-        */
-        
+        else if (e.After.Channel == null)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            StopAudio(e.Guild);
+        }
+
         /*
  *
  * else if (e.After.Channel == null && connections.ContainsKey(guildId))
@@ -146,9 +130,7 @@ public class VoiceChannelService : IVoiceChannelService
        connections[guildId] = null;
    }
  */
-        
     }
-    
 
     #endregion
 
@@ -183,7 +165,7 @@ public class VoiceChannelService : IVoiceChannelService
         var ffmpeg = Process.Start(new ProcessStartInfo
         {
             FileName = "ffmpeg",
-            Arguments = $"-i \"{outputFilePath}\" -ac 2 -f s16le -ar 48000 pipe:1",
+            Arguments = $"-i \"{outputFilePath}\" -ac 2 -b:a 192k -f s16le -ar 48000 pipe:1",
             RedirectStandardOutput = true,
             UseShellExecute = false
         });
@@ -201,7 +183,7 @@ public class VoiceChannelService : IVoiceChannelService
             }));
 
         //AudioProcesses[guildId] = ffmpeg.StandardOutput.BaseStream;
-        
+
         return ffmpeg.StandardOutput.BaseStream;
     }
 

@@ -1,8 +1,8 @@
 namespace MozartCakma.Dto;
 
-public class YtVideoInfo(string title, int lenght, string thumbnail, string fomatedLenght, string videoId)
+public class YtVideoDto(string title, int lenght, string thumbnail, string formatedLenght, string videoId)
 {
-    public string FomatedLenght = fomatedLenght;
+    public string FormatedLenght = formatedLenght;
     public int Lenght = lenght;
     public string Thumbnail = thumbnail;
     public string Title = title;
