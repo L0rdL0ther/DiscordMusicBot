@@ -3,10 +3,13 @@ using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 using DSharpPlus.VoiceNext;
+using MozartCakma.Events.Handler;
+using MozartCakma.EventService;
+using MozartCakma.Service.Voice;
 
 namespace MozartCakma.Service.Bot;
 
-public class VoiceChannelService : IVoiceChannelService
+public class VoiceService : IVoiceService
 {
     private readonly Dictionary<ulong, VoiceNextConnection>
         _connections = new();
@@ -14,10 +17,9 @@ public class VoiceChannelService : IVoiceChannelService
     public Dictionary<ulong, Process> DownloadProccess = new();
 
     public Dictionary<ulong, Process> FfmpegProcesses = new();
+    
 
-    //public Dictionary<ulong, Stream> AudioProcesses = new();
-
-    public override async Task JoinChannel(DiscordMember member, DiscordGuild guild, DiscordClient client)
+    public async Task JoinChannel(DiscordMember member, DiscordGuild guild, DiscordClient client)
     {
         var bot = guild.Members[client.CurrentUser.Id];
         if (!_connections.TryGetValue(guild.Id, out var connection) || connection == null)
@@ -34,17 +36,7 @@ public class VoiceChannelService : IVoiceChannelService
         _connections[guild.Id] = await member.VoiceState.Channel.ConnectAsync();
     }
 
-    public override void DisconnectChannel(DiscordGuild guild)
-    {
-        var connection = _connections[guild.Id];
-        if (connection != null)
-        {
-            connection.Disconnect();
-            _connections.Remove(guild.Id);
-        }
-    }
-
-    public override async Task PlayAudio(DiscordGuild guild, DiscordChannel channel, string link)
+    public async Task PlayAudio(DiscordGuild guild, DiscordChannel channel, string link)
     {
         var connection = _connections[guild.Id];
         if (connection != null)
@@ -54,10 +46,11 @@ public class VoiceChannelService : IVoiceChannelService
             var pcm = await ConvertAudioToPcm(guild.Id, channel, link);
             await pcm.CopyToAsync(transmit);
             await pcm.DisposeAsync();
+            Program.Instance.Container.Instance.MusicEvents.InvokeOnMusicFinished(channel,guild);
         }
     }
 
-    public override void StopAudio(DiscordGuild guild)
+    public void StopAudio(DiscordGuild guild)
     {
         var connection = _connections[guild.Id];
         if (connection != null)
@@ -73,7 +66,7 @@ public class VoiceChannelService : IVoiceChannelService
         }
     }
 
-    public override void ResumeAudio(DiscordGuild guild)
+    public void ResumeAudio(DiscordGuild guild)
     {
         var connection = _connections[guild.Id];
         if (connection != null)
@@ -83,13 +76,23 @@ public class VoiceChannelService : IVoiceChannelService
         }
     }
 
-    public override void PauseAudio(DiscordGuild guild)
+    public void PauseAudio(DiscordGuild guild)
     {
         var connection = _connections[guild.Id];
         if (connection != null)
         {
             var transmit = connection.GetTransmitSink();
             transmit.Pause();
+        }
+    }
+
+    public void DisconnectChannel(DiscordGuild guild)
+    {
+        var connection = _connections[guild.Id];
+        if (connection != null)
+        {
+            connection.Disconnect();
+            _connections.Remove(guild.Id);
         }
     }
 

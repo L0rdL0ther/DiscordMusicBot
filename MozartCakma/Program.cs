@@ -1,33 +1,40 @@
 ﻿using DSharpPlus;
 using DSharpPlus.CommandsNext;
+using DSharpPlus.Entities;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Enums;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.VoiceNext;
-using MozartCakma;
 using MozartCakma.Events;
 using MozartCakma.Service;
 using Newtonsoft.Json;
-using Command = MozartCakma.Command.Command;
+
+namespace MozartCakma;
 
 public class Program
 {
-    public Container Container = new();
+    public Program(Container container)
+    {
+        Container = container;
+    }
+
+    public Container Container { get; }
     public static Program Instance { get; private set; }
 
     private static async Task Main(string[] args)
     {
-        var Settings = new Settings();
-        Instance = new Program();
+        Instance = new Program(new Container()); // Burada Instance atanıyor
+        Instance.Container.Initialize();
+        var settings = new Settings();
         var messageEvents = new MessageEvents();
         var interactionEvents = new InteractionEvents();
+        var MusicEvents = new MusicEvents();
+        var jsonConfig = JsonConvert.SerializeObject(settings);
 
-        var jsonConfig = JsonConvert.SerializeObject(Settings);
-
-        var builder = DiscordClientBuilder.CreateDefault(Settings.BotToken, DiscordIntents.All)
-            .UseCommandsNext(ex => { ex.RegisterCommands<Command>(); }, new CommandsNextConfiguration
+        var builder = DiscordClientBuilder.CreateDefault(settings.BotToken, DiscordIntents.All)
+            .UseCommandsNext(ex => { ex.RegisterCommands<Command.Command>(); }, new CommandsNextConfiguration
             {
-                StringPrefixes = new[] { Settings.Prefix }
+                StringPrefixes = new[] { settings.Prefix }
             })
             .UseInteractivity(new InteractivityConfiguration
             {
@@ -39,9 +46,13 @@ public class Program
                 eventType
                     .HandleMessageCreated(messageEvents.MessageCreatedHandler)
                     .HandleComponentInteractionCreated(interactionEvents.ComponentInteractionCreated)
-                    .HandleVoiceStateUpdated(Instance.Container.VoiceChannelService.HandleVoiceStateUpdated);
+                .HandleVoiceStateUpdated(Instance.Container.VoiceService.HandleVoiceStateUpdated);
             });
 
+            Instance.Container.MusicEvents.OnMusicFinished += MusicEvents.OnOnMusicFinished;
+                
+                
+        
         builder.UseVoiceNext(new VoiceNextConfiguration
         {
             AudioFormat = AudioFormat.Default
@@ -58,4 +69,5 @@ public class Program
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
     }
+    
 }
