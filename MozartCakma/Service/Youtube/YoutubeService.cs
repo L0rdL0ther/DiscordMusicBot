@@ -18,10 +18,11 @@ public class YoutubeService : IYoutubeService
 
     public async Task<List<YtVideoDto>> Search(string queryT)
     {
+        
         using var client = new HttpClient();
         var requestUrl =
             $"https://youtube-search-and-download.p.rapidapi.com/search?query={Uri.EscapeDataString(queryT)}&type=v";
-
+        
         var request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
         request.Headers.Add("x-rapidapi-host", "youtube-search-and-download.p.rapidapi.com");
         request.Headers.Add("x-rapidapi-key", Config.RapidKey);

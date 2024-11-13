@@ -30,12 +30,12 @@ public class Program
 
     private static async Task Main(string[] args)
     {
-        Instance = new Program(new Container(), new Settings()); // Burada Instance atanıyor
-        Instance.Container.Initialize();
-
-        var settings = Instance.Settings;
+        Settings settings = null;
+        
         File.Open(ConfigFileName, FileMode.OpenOrCreate).Close();
-
+        var jsonConfig = JsonConvert.SerializeObject(settings);
+        File.WriteAllText(ConfigFileName, jsonConfig);
+        
         try
         {
             var rawConfigJson = File.ReadAllText("config.json");
@@ -52,15 +52,10 @@ public class Program
             Console.WriteLine($"Error deserializing JSON: {ex.Message}");
             settings = new Settings();
         }
-
-        var messageEvents = new MessageEvents();
-        var interactionEvents = new InteractionEvents();
-        var musicEvents = new MusicEvents();
-        var jsonConfig = JsonConvert.SerializeObject(settings);
-
-        File.Open(ConfigFileName, FileMode.OpenOrCreate).Close();
-        File.WriteAllText(ConfigFileName, jsonConfig);
-
+        
+        Instance = new Program(new Container(), settings); // Burada Instance atanıyor
+        Instance.Container.Initialize();
+        
         settings.BotToken = settings.BotToken == "YOUR_TOKEN_HERE" 
             ? System.Environment.GetEnvironmentVariable("BOT_TOKEN") ?? settings.BotToken 
             : settings.BotToken;
@@ -71,7 +66,11 @@ public class Program
         
         Console.WriteLine("Your bot token: "+settings.BotToken);
         Console.WriteLine("Your api key: "+settings.RapidKey);
-
+        
+        var messageEvents = new MessageEvents();
+        var interactionEvents = new InteractionEvents();
+        var musicEvents = new MusicEvents();
+        
         var builder = DiscordClientBuilder.CreateDefault(settings.BotToken, DiscordIntents.All)
             .UseCommandsNext(ex => { ex.RegisterCommands<Command.Command>(); }, new CommandsNextConfiguration
             {

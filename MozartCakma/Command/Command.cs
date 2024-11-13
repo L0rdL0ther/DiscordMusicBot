@@ -26,9 +26,8 @@ public class Command : BaseCommandModule
             await ctx.RespondAsync("You are not in a voice channel.");
             return;
         }
-
+        
         var videoList = await Main.Container.YoutubeService.Search(queryT);
-
         if (videoList.Count > 0)
         {
             var options = new List<DiscordSelectComponentOption>();

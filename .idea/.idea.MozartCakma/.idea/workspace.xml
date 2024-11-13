@@ -9,34 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c6432ea0-1dbd-4883-b055-0403c8b1ee72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MozartCakma/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MozartCakma/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Command/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Command/Command.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/CommunityToolkit.HighPerformance.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/ConcurrentCollections.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Costura.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/DSharpPlus.Commands.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/DSharpPlus.CommandsNext.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/DSharpPlus.Interactivity.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/DSharpPlus.Lavalink.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/DSharpPlus.Rest.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/DSharpPlus.SlashCommands.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/DSharpPlus.VoiceNext.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/DSharpPlus.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Microsoft.Extensions.Options.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/MozartCakma.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/MozartCakma.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/MozartCakma.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/MozartCakma.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Polly.Core.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/bin/Debug/net8.0/Ulid.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Youtube/YoutubeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Youtube/YoutubeService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.sourcelink.json" afterDir="false" />
@@ -47,6 +24,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,19 +42,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.MozartCakma.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.MozartCakma.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="MozartCakma" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -106,7 +86,8 @@
       <workItem from="1729768262922" duration="334000" />
       <workItem from="1729769208346" duration="2026000" />
       <workItem from="1731495878017" duration="7447000" />
-      <workItem from="1731507275974" duration="2142000" />
+      <workItem from="1731507275974" duration="2251000" />
+      <workItem from="1731512000191" duration="2365000" />
     </task>
     <servers />
   </component>
