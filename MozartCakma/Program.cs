@@ -32,15 +32,11 @@ public class Program
     {
         Settings settings = null;
         
-        File.Open(ConfigFileName, FileMode.OpenOrCreate).Close();
-        var jsonConfig = JsonConvert.SerializeObject(settings);
-        File.WriteAllText(ConfigFileName, jsonConfig);
-        
         try
         {
-            var rawConfigJson = File.ReadAllText("config.json");
-            var configJson = JsonConvert.DeserializeObject<Settings>(rawConfigJson);
-            settings = configJson ?? new Settings();
+            var rawConfigJson = File.ReadAllText(ConfigFileName);
+            Settings configJson = JsonConvert.DeserializeObject<Settings>(rawConfigJson);
+            settings = configJson == null ? new Settings() : configJson;
         }
         catch (IOException ex)
         {
@@ -55,6 +51,10 @@ public class Program
         
         Instance = new Program(new Container(), settings); // Burada Instance atanıyor
         Instance.Container.Initialize();
+        
+        File.Open(ConfigFileName, FileMode.OpenOrCreate).Close();
+        var jsonConfig = JsonConvert.SerializeObject(settings);
+        File.WriteAllText(ConfigFileName, jsonConfig);
         
         settings.BotToken = settings.BotToken == "YOUR_TOKEN_HERE" 
             ? System.Environment.GetEnvironmentVariable("BOT_TOKEN") ?? settings.BotToken 
