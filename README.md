@@ -15,7 +15,7 @@
 - The bot currently supports only **YouTube links**. Other platforms are **not supported**.
 - This is **not a stable version**, and there may be bugs or errors.
 - You will need to add a **Bot Token** and **Prefix** in the settings for the bot to work.
-## - A **YouTube API key** is required to search for videos. You can get it by signing up for an account at [RapidAPI YouTube Search and Download API](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download) and adding the key in the settings.
+## ⚠️ ⚠️ ⚠️ A **YouTube API key** is required to search for videos. You can get it by signing up for an account at [RapidAPI YouTube Search and Download API](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download) and adding the key in the settings.
 
 
 ## Features
