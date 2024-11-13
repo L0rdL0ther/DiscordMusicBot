@@ -71,7 +71,6 @@ public class Command : BaseCommandModule
         string videoUrl = null;
 
         await container.VoiceService.JoinChannel(ctx.Member, ctx.Guild, ctx.Client);
-        Console.WriteLine("here is problem");
         if (queryT.StartsWith("https://www.youtube.com/") ||
             queryT.StartsWith("https://www.instagram.com/") ||
             queryT.StartsWith("https://www.tiktok.com"))
@@ -93,12 +92,9 @@ public class Command : BaseCommandModule
             var video = (await container.YoutubeService.Search(queryT)).FirstOrDefault();
             if (video != null) videoUrl = $"https://www.youtube.com/watch?v={video.VideoId}";
         }
-
-        Console.WriteLine("here is problem2");
-        Console.WriteLine(videoUrl);
+        
         if (videoUrl != null)
         {
-            Console.WriteLine("haydeee");
             var result = await container.TrackService.PlayAsync(ctx.Guild, ctx.Channel, videoUrl);
             Console.WriteLine(result.Playing);
             var videoInfo = await container.YoutubeService.GetVideoInfoAsync(videoUrl);

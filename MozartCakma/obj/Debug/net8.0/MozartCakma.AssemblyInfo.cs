@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MozartCakma")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8453a2ccfe0b70db00c3c4c322cf16b694e6bf89")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45a75c140eacd28e960ab48becdd23ff4c90fdbb")]
 [assembly: System.Reflection.AssemblyProductAttribute("MozartCakma")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MozartCakma")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
