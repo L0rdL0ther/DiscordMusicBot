@@ -153,7 +153,7 @@ Navigate to the project directory and run the .NET application:
 Once the bot is running, you can use the following commands:
 
 - `!search <query>`: Search for a song on YouTube.
-- `!play <YouTube URL>`: Play music from a YouTube link.
+- `!play <YouTube URL / Title> `: Play music from a YouTube link.
 - `!stop`: Stop the current song and clear the track.
 - `!skip`: Skip to the next track (if available).
 
