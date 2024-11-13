@@ -11,6 +11,7 @@ public class InteractionEvents
     public async Task ComponentInteractionCreated(DiscordClient discordClient, ComponentInteractionCreatedEventArgs e)
     {
         if (e.Interaction.Type != DiscordInteractionType.Component) return;
+        if (e.Interaction.User.Id != e.User.Id) return;
 
         var videoId = e.Interaction.Data?.Values?.FirstOrDefault();
 
@@ -27,7 +28,7 @@ public class InteractionEvents
 
         try
         {
-            var videoDetails = await main.Container.YoutubeService.GetVideoInfo(videoId);
+            var videoDetails = await main.Container.YoutubeService.GetVideoInfoAsync(videoId);
             if (videoDetails == null)
             {
                 await e.Interaction.EditOriginalResponseAsync(
@@ -39,14 +40,14 @@ public class InteractionEvents
             {
                 Title = $"Title: {videoDetails.Title}",
                 Url = $"https://www.youtube.com/watch?v={videoId}",
-                Description = $"Video Length: {videoDetails.FomatedLenght}",
+                Description = $"Video Length: {videoDetails.FormatedLenght}",
                 ImageUrl = videoDetails.Thumbnail,
                 Color = DiscordColor.Green
             };
 
             await e.Interaction.EditOriginalResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
 
-            main.Container.VoiceChannelService.PlayAudio(e.Guild, e.Channel,
+            main.Container.VoiceService.PlayAudio(e.Guild, e.Channel,
                 $"https://www.youtube.com/watch?v={Uri.EscapeUriString(videoDetails.VideoId)}");
         }
         catch (Exception ex)

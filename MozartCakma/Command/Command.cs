@@ -9,13 +9,13 @@ public class Command : BaseCommandModule
 {
     public Program Main = Program.Instance;
 
-    public VoiceChannelService
-        VoiceChannelService = Program.Instance.Container.VoiceChannelService;
+    public VoiceService
+        VoiceService = Program.Instance.Container.VoiceService;
 
     [Command("search")]
     public async Task Search(CommandContext ctx, [RemainingText] string queryT)
     {
-        await VoiceChannelService.JoinChannel(ctx.Member, ctx.Guild, ctx.Client);
+        await VoiceService.JoinChannel(ctx.Member, ctx.Guild, ctx.Client);
 
         if (ctx.Member?.VoiceState == null || ctx.Member.VoiceState.Channel! == null)
         {
@@ -58,40 +58,60 @@ public class Command : BaseCommandModule
     [Command("play")]
     public async Task Play(CommandContext ctx, [RemainingText] string queryT)
     {
-        if (ctx.Member?.VoiceState == null || ctx.Member.VoiceState.Channel! == null)
+        if (ctx.Member?.VoiceState?.Channel == null)
         {
             await ctx.RespondAsync("You are not in a voice channel.");
             return;
         }
 
-        await Main.Container.VoiceChannelService.JoinChannel(ctx.Member, ctx.Guild, ctx.Client);
-        await Task.Delay(1000);
+        var container = Main.Container.Instance;
+        string videoUrl = null;
 
-        if (queryT.StartsWith("https://www.youtube.com/watch?v="))
+        await container.VoiceService.JoinChannel(ctx.Member, ctx.Guild, ctx.Client);
+        Console.WriteLine("here is problem");
+        if (queryT.StartsWith("https://www.youtube.com/") ||
+            queryT.StartsWith("https://www.instagram.com/") ||
+            queryT.StartsWith("https://www.tiktok.com"))
         {
-            var embed1 = new DiscordEmbedBuilder
+            videoUrl = queryT;
+        }
+        else if (queryT.StartsWith("https://") || queryT.StartsWith("http://"))
+        {
+            await ctx.RespondAsync(new DiscordEmbedBuilder
             {
-                Title = "Playing",
-                Url = queryT,
-                Color = DiscordColor.Green
-            };
-            ctx.Message.RespondAsync(embed1);
-            await Main.Container.VoiceChannelService.PlayAudio(ctx.Guild, ctx.Channel, queryT);
+                Title = "Error",
+                Description = "Unknown Link",
+                Color = DiscordColor.Red
+            });
+            return;
         }
         else
         {
-            var video = Main.Container.YoutubeService.Search(queryT).Result.First();
+            var video = (await container.YoutubeService.Search(queryT)).FirstOrDefault();
+            if (video != null) videoUrl = $"https://www.youtube.com/watch?v={video.VideoId}";
+        }
+
+        Console.WriteLine("here is problem2");
+        Console.WriteLine(videoUrl);
+        if (videoUrl != null)
+        {
+            Console.WriteLine("haydeee");
+            var result = await container.TrackService.PlayAsync(ctx.Guild, ctx.Channel, videoUrl);
+            Console.WriteLine(result.Playing);
+            var videoInfo = await container.YoutubeService.GetVideoInfoAsync(videoUrl);
+            Console.WriteLine(videoInfo.Title);
             var embed = new DiscordEmbedBuilder
             {
-                Title = $"Title: {video.Title}",
-                Url = $"https://www.youtube.com/watch?v={video.VideoId}",
-                Description = $"Video Length: {video.FomatedLenght}",
-                ImageUrl = video.Thumbnail,
-                Color = DiscordColor.Green
+                Title = result.Playing ? $"Title: {videoInfo.Title}" : "Successfully added track",
+                Url = result.Playing ? $"https://www.youtube.com/watch?v={videoInfo.VideoId}" : null,
+                Description = result.Playing
+                    ? $"Video Length: {videoInfo.FormatedLenght}"
+                    : $"Video Name: {result.Title} Track",
+                ImageUrl = result.Playing ? videoInfo.Thumbnail : null,
+                Color = result.Playing ? DiscordColor.Cyan : DiscordColor.Gray
             };
-            ctx.Message.RespondAsync(embed);
-            await Main.Container.VoiceChannelService.PlayAudio(ctx.Guild, ctx.Channel,
-                "https://www.youtube.com/watch?v=" + video.VideoId);
+
+            await ctx.RespondAsync(embed);
         }
     }
 
@@ -104,7 +124,7 @@ public class Command : BaseCommandModule
             return;
         }
 
-        Main.Container.VoiceChannelService.StopAudio(ctx.Guild);
+        Main.Container.VoiceService.StopAudio(ctx.Guild);
         var embed1 = new DiscordEmbedBuilder
         {
             Title = "Stopped",

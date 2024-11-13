@@ -28,7 +28,7 @@
           }
         }
       },
-      "DSharpPlus/5.0.0-nightly-02386": {
+      "DSharpPlus/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
           "CommunityToolkit.HighPerformance": "8.3.2",
@@ -50,10 +50,10 @@
           }
         }
       },
-      "DSharpPlus.Commands/5.0.0-nightly-02386": {
+      "DSharpPlus.Commands/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02386",
+          "DSharpPlus": "5.0.0-nightly-02389",
           "Microsoft.Extensions.Logging": "8.0.1",
           "Ulid": "1.3.4"
         },
@@ -68,10 +68,10 @@
           }
         }
       },
-      "DSharpPlus.CommandsNext/5.0.0-nightly-02386": {
+      "DSharpPlus.CommandsNext/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02386",
+          "DSharpPlus": "5.0.0-nightly-02389",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
         },
@@ -86,27 +86,11 @@
           }
         }
       },
-      "DSharpPlus.Core/5.0.0-nightly-01576": {
-        "type": "package",
-        "dependencies": {
-          "System.Text.Json": "8.0.0-preview.2.23128.3"
-        },
-        "compile": {
-          "lib/net7.0/DSharpPlus.Core.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/DSharpPlus.Core.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "DSharpPlus.Interactivity/5.0.0-nightly-02386": {
+      "DSharpPlus.Interactivity/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
           "ConcurrentHashSet": "1.3.0",
-          "DSharpPlus": "5.0.0-nightly-02386"
+          "DSharpPlus": "5.0.0-nightly-02389"
         },
         "compile": {
           "lib/net8.0/DSharpPlus.Interactivity.dll": {
@@ -119,10 +103,10 @@
           }
         }
       },
-      "DSharpPlus.Lavalink/5.0.0-nightly-02386": {
+      "DSharpPlus.Lavalink/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02386"
+          "DSharpPlus": "5.0.0-nightly-02389"
         },
         "compile": {
           "lib/net8.0/DSharpPlus.Lavalink.dll": {
@@ -135,10 +119,10 @@
           }
         }
       },
-      "DSharpPlus.Rest/5.0.0-nightly-02386": {
+      "DSharpPlus.Rest/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02386"
+          "DSharpPlus": "5.0.0-nightly-02389"
         },
         "compile": {
           "lib/net8.0/DSharpPlus.Rest.dll": {
@@ -151,10 +135,10 @@
           }
         }
       },
-      "DSharpPlus.SlashCommands/5.0.0-nightly-02386": {
+      "DSharpPlus.SlashCommands/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02386",
+          "DSharpPlus": "5.0.0-nightly-02389",
           "Microsoft.Extensions.DependencyInjection": "8.0.1"
         },
         "compile": {
@@ -168,10 +152,10 @@
           }
         }
       },
-      "DSharpPlus.VoiceNext/5.0.0-nightly-02386": {
+      "DSharpPlus.VoiceNext/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02386",
+          "DSharpPlus": "5.0.0-nightly-02389",
           "DSharpPlus.VoiceNext.Natives": "1.0.0"
         },
         "compile": {
@@ -372,22 +356,6 @@
           }
         }
       },
-      "Newtonsoft.Json.Bson/1.0.3-beta1": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
       "Polly.Core/8.4.2": {
         "type": "package",
         "compile": {
@@ -399,47 +367,6 @@
           "lib/net8.0/Polly.Core.dll": {
             "related": ".pdb;.xml"
           }
-        }
-      },
-      "System.Text.Encodings.Web/8.0.0-preview.2.23128.3": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/System.Text.Encodings.Web.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/System.Text.Encodings.Web.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net6.0/_._": {}
-        },
-        "runtimeTargets": {
-          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
-            "assetType": "runtime",
-            "rid": "browser"
-          }
-        }
-      },
-      "System.Text.Json/8.0.0-preview.2.23128.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Text.Encodings.Web": "8.0.0-preview.2.23128.3"
-        },
-        "compile": {
-          "lib/net8.0/System.Text.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/System.Text.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
       "Ulid/1.3.4": {
@@ -504,143 +431,129 @@
         "lib/netstandard2.0/ConcurrentCollections.xml"
       ]
     },
-    "DSharpPlus/5.0.0-nightly-02386": {
-      "sha512": "4si+ZinIqiOsuRpF3wkQYfrIhLKuXFCcRZUK0zAKJyIQotl4zAZXqZiIBpLu3wUuPZAoRFq+K8AI4fgPWfvTtg==",
+    "DSharpPlus/5.0.0-nightly-02389": {
+      "sha512": "pl/QFCa7TYXWukgceNYN/gyEQrHOMQGMKc84XxTbGbrKhWWaL6LCDuKlvIVeHaM9r01O/rRvfbWX7shuvix1Lw==",
       "type": "package",
-      "path": "dsharpplus/5.0.0-nightly-02386",
+      "path": "dsharpplus/5.0.0-nightly-02389",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "README.md",
-        "dsharpplus.5.0.0-nightly-02386.nupkg.sha512",
+        "dsharpplus.5.0.0-nightly-02389.nupkg.sha512",
         "dsharpplus.nuspec",
         "dsharpplus.png",
         "lib/net8.0/DSharpPlus.dll",
         "lib/net8.0/DSharpPlus.xml"
       ]
     },
-    "DSharpPlus.Commands/5.0.0-nightly-02386": {
-      "sha512": "oirdifA8B1lfvtm9i2Yd9sSHpZtZB9/MI3xbA8ah/f5c+lDS5H3zJAUDmd8bwbZOk5ozbp+ChKAuchQVYNTusQ==",
+    "DSharpPlus.Commands/5.0.0-nightly-02389": {
+      "sha512": "jLgz8EJk5jYCJvoHxph5/oJaWX9R0DEOBN2A5QCdgrEbHKqkzF8Qztw1SV89O+DtPdiSidg79/6J1yxGhpgORw==",
       "type": "package",
-      "path": "dsharpplus.commands/5.0.0-nightly-02386",
+      "path": "dsharpplus.commands/5.0.0-nightly-02389",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "README.md",
-        "dsharpplus.commands.5.0.0-nightly-02386.nupkg.sha512",
+        "dsharpplus.commands.5.0.0-nightly-02389.nupkg.sha512",
         "dsharpplus.commands.nuspec",
         "dsharpplus.png",
         "lib/net8.0/DSharpPlus.Commands.dll",
         "lib/net8.0/DSharpPlus.Commands.xml"
       ]
     },
-    "DSharpPlus.CommandsNext/5.0.0-nightly-02386": {
-      "sha512": "Wkg3TYSBLIJtUertzJwTIJqn0F92+ZlK5IHy13BwrqJnUckI0O2l+i6Bj4lCzFbgLo2E/UYeWmoJhQbHuuKNsA==",
+    "DSharpPlus.CommandsNext/5.0.0-nightly-02389": {
+      "sha512": "7jl+q+1ndrFIruTS8ApgVbBUQX1AbUz9jZfuSUVai/4CL/rmkbkZi24YChkxixL7aAyfYBJTxE/yrw3UTp/z0g==",
       "type": "package",
-      "path": "dsharpplus.commandsnext/5.0.0-nightly-02386",
+      "path": "dsharpplus.commandsnext/5.0.0-nightly-02389",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "README.md",
-        "dsharpplus.commandsnext.5.0.0-nightly-02386.nupkg.sha512",
+        "dsharpplus.commandsnext.5.0.0-nightly-02389.nupkg.sha512",
         "dsharpplus.commandsnext.nuspec",
         "dsharpplus.png",
         "lib/net8.0/DSharpPlus.CommandsNext.dll",
         "lib/net8.0/DSharpPlus.CommandsNext.xml"
       ]
     },
-    "DSharpPlus.Core/5.0.0-nightly-01576": {
-      "sha512": "I0VmPOHQ6inRrdSSU/o0L0G1zmNrMSN4aGjfxQGnGESRTklM1j+SG3C4ydQAoG7zfOBKQvyAgzBKIKnn1N+yUw==",
+    "DSharpPlus.Interactivity/5.0.0-nightly-02389": {
+      "sha512": "soBHhjEyAWLUd8V7iNKptYG5L5GcymvVtL0AgXowlemXIGd4wkETcjIq0+3OC7U35J6pe7rA+gCcmDDUuthduA==",
       "type": "package",
-      "path": "dsharpplus.core/5.0.0-nightly-01576",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "dsharpplus.core.5.0.0-nightly-01576.nupkg.sha512",
-        "dsharpplus.core.nuspec",
-        "dsharpplus.png",
-        "lib/net7.0/DSharpPlus.Core.dll",
-        "lib/net7.0/DSharpPlus.Core.xml"
-      ]
-    },
-    "DSharpPlus.Interactivity/5.0.0-nightly-02386": {
-      "sha512": "I23rJjGGps2Vrmv2Hqm1u6QpOkm+1U6EszajyoTkNJh0eeYqtMp4zocD1ghxfoXfgm8Vqa1eyKDGEIEo1CdlVA==",
-      "type": "package",
-      "path": "dsharpplus.interactivity/5.0.0-nightly-02386",
+      "path": "dsharpplus.interactivity/5.0.0-nightly-02389",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "README.md",
-        "dsharpplus.interactivity.5.0.0-nightly-02386.nupkg.sha512",
+        "dsharpplus.interactivity.5.0.0-nightly-02389.nupkg.sha512",
         "dsharpplus.interactivity.nuspec",
         "dsharpplus.png",
         "lib/net8.0/DSharpPlus.Interactivity.dll",
         "lib/net8.0/DSharpPlus.Interactivity.xml"
       ]
     },
-    "DSharpPlus.Lavalink/5.0.0-nightly-02386": {
-      "sha512": "zBPxMsY3zphB1FdHzplJRDtWFFAg0WSiE3xkhrh+eYah5DyspX3aP2W6G5U8S9JmVEBsAAGN64jrdufYG+z8nA==",
+    "DSharpPlus.Lavalink/5.0.0-nightly-02389": {
+      "sha512": "cMyQ8L+rzqbZFUQ5luDFHUnbRiNmUfhQQNPwWt5YqQbQPzps1TzorSx0fPzdNCNgdPGiZIitLwguAWt9VKGUAQ==",
       "type": "package",
-      "path": "dsharpplus.lavalink/5.0.0-nightly-02386",
+      "path": "dsharpplus.lavalink/5.0.0-nightly-02389",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "README.md",
-        "dsharpplus.lavalink.5.0.0-nightly-02386.nupkg.sha512",
+        "dsharpplus.lavalink.5.0.0-nightly-02389.nupkg.sha512",
         "dsharpplus.lavalink.nuspec",
         "dsharpplus.png",
         "lib/net8.0/DSharpPlus.Lavalink.dll",
         "lib/net8.0/DSharpPlus.Lavalink.xml"
       ]
     },
-    "DSharpPlus.Rest/5.0.0-nightly-02386": {
-      "sha512": "XMeXweSx2DdcQNxNzJIh4sO41/2GjqRF7qhOI//XRSRyiFMhuc0fRMMPSCooOx67VkYo6M2dBzJi/XQlofI6zA==",
+    "DSharpPlus.Rest/5.0.0-nightly-02389": {
+      "sha512": "PI2gSqIBqoov7g4wQdlQNto9fnAzSyiM9/Y8uIKCBwZrHwduTpEawvHt5H1gzYNiZgnqtMXQl8f1YcQR79LhsQ==",
       "type": "package",
-      "path": "dsharpplus.rest/5.0.0-nightly-02386",
+      "path": "dsharpplus.rest/5.0.0-nightly-02389",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "README.md",
         "dsharpplus.png",
-        "dsharpplus.rest.5.0.0-nightly-02386.nupkg.sha512",
+        "dsharpplus.rest.5.0.0-nightly-02389.nupkg.sha512",
         "dsharpplus.rest.nuspec",
         "lib/net8.0/DSharpPlus.Rest.dll",
         "lib/net8.0/DSharpPlus.Rest.xml"
       ]
     },
-    "DSharpPlus.SlashCommands/5.0.0-nightly-02386": {
-      "sha512": "E27aSZqW6bHxHJ+50fr7KLAQA7AcAs3YJcPte33AXk1ZznGZBSfafsUCHCt2nOUgqtQGDQq5aj7jSlGWKQ4jKg==",
+    "DSharpPlus.SlashCommands/5.0.0-nightly-02389": {
+      "sha512": "HBtuv+TiYp4u8EtF7YaQdcGMhdKF6hGLTqDUTmzQEG23JNGNKKMWWf5oTkQerCeX7wDrVd/z0qugUeSi5N4IEA==",
       "type": "package",
-      "path": "dsharpplus.slashcommands/5.0.0-nightly-02386",
+      "path": "dsharpplus.slashcommands/5.0.0-nightly-02389",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "README.md",
         "dsharpplus.png",
-        "dsharpplus.slashcommands.5.0.0-nightly-02386.nupkg.sha512",
+        "dsharpplus.slashcommands.5.0.0-nightly-02389.nupkg.sha512",
         "dsharpplus.slashcommands.nuspec",
         "lib/net8.0/DSharpPlus.SlashCommands.dll",
         "lib/net8.0/DSharpPlus.SlashCommands.xml"
       ]
     },
-    "DSharpPlus.VoiceNext/5.0.0-nightly-02386": {
-      "sha512": "9ToLezZVHdygTCnb4tCw+JY0h+MAkYZDH9+vWwlTi0Krj9YFe3XE7itjeWhdMYRZ//pvnIIfZyxNH9KjQSjICg==",
+    "DSharpPlus.VoiceNext/5.0.0-nightly-02389": {
+      "sha512": "0edzWibagp/Zpr9RuuEmQmSztNO0C//EX+njXIEIUBPhMV00KYzY6KEVm2l5yjczRyIOMFPpyECOjZovb+bKsQ==",
       "type": "package",
-      "path": "dsharpplus.voicenext/5.0.0-nightly-02386",
+      "path": "dsharpplus.voicenext/5.0.0-nightly-02389",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "README.md",
         "dsharpplus.png",
-        "dsharpplus.voicenext.5.0.0-nightly-02386.nupkg.sha512",
+        "dsharpplus.voicenext.5.0.0-nightly-02389.nupkg.sha512",
         "dsharpplus.voicenext.nuspec",
         "lib/net8.0/DSharpPlus.VoiceNext.dll",
         "lib/net8.0/DSharpPlus.VoiceNext.xml"
@@ -997,28 +910,6 @@
         "packageIcon.png"
       ]
     },
-    "Newtonsoft.Json.Bson/1.0.3-beta1": {
-      "sha512": "Zc0FLLTq/D6cNU4rz/zIWHNKtrFfvAGc3TRBBw64kmzmwM1ZOWnea8IKTNQgpqJ5C6zoHFUsOjGmknIqO8tU6w==",
-      "type": "package",
-      "path": "newtonsoft.json.bson/1.0.3-beta1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "lib/net45/Newtonsoft.Json.Bson.dll",
-        "lib/net45/Newtonsoft.Json.Bson.pdb",
-        "lib/net45/Newtonsoft.Json.Bson.xml",
-        "lib/netstandard1.3/Newtonsoft.Json.Bson.dll",
-        "lib/netstandard1.3/Newtonsoft.Json.Bson.pdb",
-        "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
-        "lib/netstandard2.0/Newtonsoft.Json.Bson.dll",
-        "lib/netstandard2.0/Newtonsoft.Json.Bson.pdb",
-        "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
-        "newtonsoft.json.bson.1.0.3-beta1.nupkg.sha512",
-        "newtonsoft.json.bson.nuspec",
-        "packageIcon.png"
-      ]
-    },
     "Polly.Core/8.4.2": {
       "sha512": "BpE2I6HBYYA5tF0Vn4eoQOGYTYIK1BlF5EXVgkWGn3mqUUjbXAr13J6fZVbp7Q3epRR8yshacBMlsHMhpOiV3g==",
       "type": "package",
@@ -1047,114 +938,6 @@
         "polly.core.nuspec"
       ]
     },
-    "System.Text.Encodings.Web/8.0.0-preview.2.23128.3": {
-      "sha512": "CtftTHM4wzZqLniyDDVnyiCVbDlWJ2fUQntfzyBtDJ4z5Wiue6VobpnKm1xH/u26TYbzs3jkpyTKu8BeYrafAQ==",
-      "type": "package",
-      "path": "system.text.encodings.web/8.0.0-preview.2.23128.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/System.Text.Encodings.Web.targets",
-        "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
-        "buildTransitive/netcoreapp2.0/System.Text.Encodings.Web.targets",
-        "lib/net462/System.Text.Encodings.Web.dll",
-        "lib/net462/System.Text.Encodings.Web.xml",
-        "lib/net6.0/System.Text.Encodings.Web.dll",
-        "lib/net6.0/System.Text.Encodings.Web.xml",
-        "lib/net7.0/System.Text.Encodings.Web.dll",
-        "lib/net7.0/System.Text.Encodings.Web.xml",
-        "lib/net8.0/System.Text.Encodings.Web.dll",
-        "lib/net8.0/System.Text.Encodings.Web.xml",
-        "lib/netstandard2.0/System.Text.Encodings.Web.dll",
-        "lib/netstandard2.0/System.Text.Encodings.Web.xml",
-        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll",
-        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.xml",
-        "runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll",
-        "runtimes/browser/lib/net7.0/System.Text.Encodings.Web.xml",
-        "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll",
-        "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.xml",
-        "system.text.encodings.web.8.0.0-preview.2.23128.3.nupkg.sha512",
-        "system.text.encodings.web.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "System.Text.Json/8.0.0-preview.2.23128.3": {
-      "sha512": "XEDHMiQljQK+381Mx56ERjNrHBZ3Gozq7TmFVUqtDnMIb+BKoE4KY9mfFE/SDXfJC+JMgrUQF7bzKEErghrd7g==",
-      "type": "package",
-      "path": "system.text.json/8.0.0-preview.2.23128.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "analyzers/dotnet/roslyn3.11/cs/System.Text.Json.SourceGeneration.dll",
-        "analyzers/dotnet/roslyn3.11/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/de/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/es/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/it/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/System.Text.Json.SourceGeneration.dll",
-        "analyzers/dotnet/roslyn4.0/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/de/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/es/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/it/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/System.Text.Json.SourceGeneration.dll",
-        "analyzers/dotnet/roslyn4.4/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/de/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/es/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/it/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
-        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
-        "buildTransitive/net461/System.Text.Json.targets",
-        "buildTransitive/net462/System.Text.Json.targets",
-        "buildTransitive/net6.0/System.Text.Json.targets",
-        "buildTransitive/netcoreapp2.0/System.Text.Json.targets",
-        "buildTransitive/netstandard2.0/System.Text.Json.targets",
-        "lib/net462/System.Text.Json.dll",
-        "lib/net462/System.Text.Json.xml",
-        "lib/net6.0/System.Text.Json.dll",
-        "lib/net6.0/System.Text.Json.xml",
-        "lib/net7.0/System.Text.Json.dll",
-        "lib/net7.0/System.Text.Json.xml",
-        "lib/net8.0/System.Text.Json.dll",
-        "lib/net8.0/System.Text.Json.xml",
-        "lib/netstandard2.0/System.Text.Json.dll",
-        "lib/netstandard2.0/System.Text.Json.xml",
-        "system.text.json.8.0.0-preview.2.23128.3.nupkg.sha512",
-        "system.text.json.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "Ulid/1.3.4": {
       "sha512": "6IaGquwjjfW+BoHSV844y12Uy2kxbboYNmsibxr2lotcSPAA3LKy1CKcAQ8JOdAdL4xMoDNXA1oxG41w7fbr6Q==",
       "type": "package",
@@ -1180,17 +963,15 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "DSharpPlus >= 5.0.0-nightly-02386",
-      "DSharpPlus.Commands >= 5.0.0-nightly-02386",
-      "DSharpPlus.CommandsNext >= 5.0.0-nightly-02386",
-      "DSharpPlus.Core >= 5.0.0-nightly-01576",
-      "DSharpPlus.Interactivity >= 5.0.0-nightly-02386",
-      "DSharpPlus.Lavalink >= 5.0.0-nightly-02386",
-      "DSharpPlus.Rest >= 5.0.0-nightly-02386",
-      "DSharpPlus.SlashCommands >= 5.0.0-nightly-02386",
-      "DSharpPlus.VoiceNext >= 5.0.0-nightly-02386",
-      "DSharpPlus.VoiceNext.Natives >= 1.0.0",
-      "Newtonsoft.Json.Bson >= 1.0.3-beta1"
+      "DSharpPlus >= 5.0.0-nightly-02389",
+      "DSharpPlus.Commands >= 5.0.0-nightly-02389",
+      "DSharpPlus.CommandsNext >= 5.0.0-nightly-02389",
+      "DSharpPlus.Interactivity >= 5.0.0-nightly-02389",
+      "DSharpPlus.Lavalink >= 5.0.0-nightly-02389",
+      "DSharpPlus.Rest >= 5.0.0-nightly-02389",
+      "DSharpPlus.SlashCommands >= 5.0.0-nightly-02389",
+      "DSharpPlus.VoiceNext >= 5.0.0-nightly-02389",
+      "DSharpPlus.VoiceNext.Natives >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1199,11 +980,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/l4me/RiderProjects/DiscordMusicBot/MozartCakma/MozartCakma.csproj",
+      "projectUniqueName": "/home/l4me/RiderProjects/MozartCakma/MozartCakma/MozartCakma.csproj",
       "projectName": "MozartCakma",
-      "projectPath": "/home/l4me/RiderProjects/DiscordMusicBot/MozartCakma/MozartCakma.csproj",
+      "projectPath": "/home/l4me/RiderProjects/MozartCakma/MozartCakma/MozartCakma.csproj",
       "packagesPath": "/home/l4me/.nuget/packages/",
-      "outputPath": "/home/l4me/RiderProjects/DiscordMusicBot/MozartCakma/obj/",
+      "outputPath": "/home/l4me/RiderProjects/MozartCakma/MozartCakma/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/l4me/.nuget/NuGet/NuGet.Config"
@@ -1232,47 +1013,39 @@
         "dependencies": {
           "DSharpPlus": {
             "target": "Package",
-            "version": "[5.0.0-nightly-02386, )"
+            "version": "[5.0.0-nightly-02389, )"
           },
           "DSharpPlus.Commands": {
             "target": "Package",
-            "version": "[5.0.0-nightly-02386, )"
+            "version": "[5.0.0-nightly-02389, )"
           },
           "DSharpPlus.CommandsNext": {
             "target": "Package",
-            "version": "[5.0.0-nightly-02386, )"
-          },
-          "DSharpPlus.Core": {
-            "target": "Package",
-            "version": "[5.0.0-nightly-01576, )"
+            "version": "[5.0.0-nightly-02389, )"
           },
           "DSharpPlus.Interactivity": {
             "target": "Package",
-            "version": "[5.0.0-nightly-02386, )"
+            "version": "[5.0.0-nightly-02389, )"
           },
           "DSharpPlus.Lavalink": {
             "target": "Package",
-            "version": "[5.0.0-nightly-02386, )"
+            "version": "[5.0.0-nightly-02389, )"
           },
           "DSharpPlus.Rest": {
             "target": "Package",
-            "version": "[5.0.0-nightly-02386, )"
+            "version": "[5.0.0-nightly-02389, )"
           },
           "DSharpPlus.SlashCommands": {
             "target": "Package",
-            "version": "[5.0.0-nightly-02386, )"
+            "version": "[5.0.0-nightly-02389, )"
           },
           "DSharpPlus.VoiceNext": {
             "target": "Package",
-            "version": "[5.0.0-nightly-02386, )"
+            "version": "[5.0.0-nightly-02389, )"
           },
           "DSharpPlus.VoiceNext.Natives": {
             "target": "Package",
             "version": "[1.0.0, )"
-          },
-          "Newtonsoft.Json.Bson": {
-            "target": "Package",
-            "version": "[1.0.3-beta1, )"
           }
         },
         "imports": [
@@ -1289,7 +1062,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.8, 8.0.8]"
+            "version": "[8.0.10, 8.0.10]"
           }
         ],
         "frameworkReferences": {
@@ -1297,7 +1070,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
