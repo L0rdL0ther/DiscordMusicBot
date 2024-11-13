@@ -35,7 +35,7 @@ Start by installing the necessary dependencies:
 
 ```bash
 sudo apt-get update
-sudo apt-get install libopus0 libopus-dev snap
+sudo apt-get install libopus0 libopus-dev snap libsodium-dev
 sudo snap install --edge yt-dlp
 sudo apt install ffmpeg
 ```
