@@ -8,6 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="DSharpPlus" Version="5.0.0-nightly-02389"/>
         <PackageReference Include="DSharpPlus.Commands" Version="5.0.0-nightly-02389"/>
         <PackageReference Include="DSharpPlus.CommandsNext" Version="5.0.0-nightly-02389"/>

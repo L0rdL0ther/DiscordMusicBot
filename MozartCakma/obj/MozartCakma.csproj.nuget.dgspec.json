@@ -38,6 +38,12 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Costura.Fody": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0-beta0000, )"
+            },
             "DSharpPlus": {
               "target": "Package",
               "version": "[5.0.0-nightly-02389, )"

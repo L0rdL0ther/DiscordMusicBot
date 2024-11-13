@@ -28,6 +28,26 @@
           }
         }
       },
+      "Costura.Fody/6.0.0-beta0000": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.8.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Costura.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/Costura.Fody.props": {},
+          "build/Costura.Fody.targets": {}
+        }
+      },
       "DSharpPlus/5.0.0-nightly-02389": {
         "type": "package",
         "dependencies": {
@@ -188,6 +208,12 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "Fody/6.8.2": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
@@ -431,6 +457,27 @@
         "lib/netstandard2.0/ConcurrentCollections.xml"
       ]
     },
+    "Costura.Fody/6.0.0-beta0000": {
+      "sha512": "LmQtwv0tqR3RDNNOypyFPr29qpqnoSflMvIzcI4k8PvnpQIqvk7ZjLgKHJHdrxqEK3fkacvRsTgJzEeMO7/xqg==",
+      "type": "package",
+      "path": "costura.fody/6.0.0-beta0000",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Costura.Fody.props",
+        "build/Costura.Fody.targets",
+        "costura.fody.6.0.0-beta0000.nupkg.sha512",
+        "costura.fody.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/Costura.dll",
+        "lib/netstandard2.0/Costura.pdb",
+        "lib/netstandard2.0/Costura.xml",
+        "netclassicweaver/Costura.Fody.dll",
+        "netclassicweaver/Costura.Fody.xcf",
+        "netstandardweaver/Costura.Fody.dll",
+        "netstandardweaver/Costura.Fody.xcf"
+      ]
+    },
     "DSharpPlus/5.0.0-nightly-02389": {
       "sha512": "pl/QFCa7TYXWukgceNYN/gyEQrHOMQGMKc84XxTbGbrKhWWaL6LCDuKlvIVeHaM9r01O/rRvfbWX7shuvix1Lw==",
       "type": "package",
@@ -572,6 +619,40 @@
         "runtimes/win-x64/native/libsodium.dll",
         "runtimes/win-x86/native/libopus.dll",
         "runtimes/win-x86/native/libsodium.dll"
+      ]
+    },
+    "Fody/6.8.2": {
+      "sha512": "sjGHrtGS1+kcrv99WXCvujOFBTQp4zCH3ZC9wo2LAtVaJkuLpHghQx3y4k1Q8ZKuDAbEw+HE6ZjPUJQK3ejepQ==",
+      "type": "package",
+      "path": "fody/6.8.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Fody.targets",
+        "fody.6.8.2.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb",
+        "readme.md"
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
@@ -963,6 +1044,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Costura.Fody >= 6.0.0-beta0000",
       "DSharpPlus >= 5.0.0-nightly-02389",
       "DSharpPlus.Commands >= 5.0.0-nightly-02389",
       "DSharpPlus.CommandsNext >= 5.0.0-nightly-02389",
@@ -1011,6 +1093,12 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Costura.Fody": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[6.0.0-beta0000, )"
+          },
           "DSharpPlus": {
             "target": "Package",
             "version": "[5.0.0-nightly-02389, )"
