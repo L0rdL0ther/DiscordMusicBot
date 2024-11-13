@@ -61,7 +61,16 @@ public class Program
         File.Open(ConfigFileName, FileMode.OpenOrCreate).Close();
         File.WriteAllText(ConfigFileName, jsonConfig);
 
-        Console.WriteLine(settings.BotToken);
+        settings.BotToken = settings.BotToken == "YOUR_TOKEN_HERE" 
+            ? System.Environment.GetEnvironmentVariable("BOT_TOKEN") ?? settings.BotToken 
+            : settings.BotToken;
+
+        settings.RapidKey = settings.RapidKey == "YOUR_API_KEY_HERE" 
+            ? System.Environment.GetEnvironmentVariable("RAPID_KEY") ?? settings.RapidKey 
+            : settings.RapidKey;
+        
+        Console.WriteLine("Your bot token: "+settings.BotToken);
+        Console.WriteLine("Your api key: "+settings.RapidKey);
 
         var builder = DiscordClientBuilder.CreateDefault(settings.BotToken, DiscordIntents.All)
             .UseCommandsNext(ex => { ex.RegisterCommands<Command.Command>(); }, new CommandsNextConfiguration
