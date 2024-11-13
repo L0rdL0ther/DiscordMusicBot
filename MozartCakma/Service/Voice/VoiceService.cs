@@ -3,8 +3,6 @@ using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 using DSharpPlus.VoiceNext;
-using MozartCakma.Events.Handler;
-using MozartCakma.EventService;
 using MozartCakma.Service.Voice;
 
 namespace MozartCakma.Service.Bot;
@@ -17,7 +15,7 @@ public class VoiceService : IVoiceService
     public Dictionary<ulong, Process> DownloadProccess = new();
 
     public Dictionary<ulong, Process> FfmpegProcesses = new();
-    
+
 
     public async Task JoinChannel(DiscordMember member, DiscordGuild guild, DiscordClient client)
     {
@@ -46,7 +44,7 @@ public class VoiceService : IVoiceService
             var pcm = await ConvertAudioToPcm(guild.Id, channel, link);
             await pcm.CopyToAsync(transmit);
             await pcm.DisposeAsync();
-            Program.Instance.Container.Instance.MusicEvents.InvokeOnMusicFinished(channel,guild);
+            Program.Instance.Container.Instance.MusicEvents.InvokeOnMusicFinished(channel, guild);
         }
     }
 
@@ -63,6 +61,7 @@ public class VoiceService : IVoiceService
                 FfmpegProcesses[guild.Id].Kill();
             if (DownloadProccess.ContainsKey(guild.Id))
                 DownloadProccess[guild.Id].Kill();
+            Program.Instance.Container.TrackService.ClearTrackAsync(guild);
         }
     }
 
@@ -115,24 +114,6 @@ public class VoiceService : IVoiceService
             await Task.Delay(TimeSpan.FromSeconds(2));
             StopAudio(e.Guild);
         }
-
-        /*
- *
- * else if (e.After.Channel == null && connections.ContainsKey(guildId))
-   {
-       var transmit = connections[guildId].Result.GetTransmitSink();
-       await transmit.FlushAsync();
-
-       if (FfmpegProcesses.ContainsKey(guildId))
-           FfmpegProcesses[guildId].Kill();
-
-       if (DownloadProccess.ContainsKey(guildId))
-           DownloadProccess[guildId].Kill();
-
-       connections[guildId].Result.Disconnect();
-       connections[guildId] = null;
-   }
- */
     }
 
     #endregion
@@ -192,151 +173,3 @@ public class VoiceService : IVoiceService
 
     #endregion
 }
-
-/*
-private Dictionary<ulong, Task<VoiceNextConnection>>
-       connections = new Dictionary<ulong, Task<VoiceNextConnection>>();
-
-   public Dictionary<ulong, Process> ffmpegProcesses = new Dictionary<ulong, Process>();
-
-   public Task JoinChannel(CommandContext ctx)
-   {
-
-   }
-
-   public void DisconnectChannel()
-   {
-       throw new NotImplementedException();
-   }
-
-   public Task PlayAudio(CommandContext ctx, string link)
-   {
-       throw new NotImplementedException();
-   }
-
-   public void StopAudio()
-   {
-       throw new NotImplementedException();
-   }
-
-   public void ResumeAudio()
-   {
-       throw new NotImplementedException();
-   }
-
-   public void PauseAudio()
-   {
-       throw new NotImplementedException();
-   }
-
-
-   private Dictionary<ulong, Task<VoiceNextConnection>>
-       connection = new Dictionary<ulong, Task<VoiceNextConnection>>();
-   public Process ffmpegProcess;
-
-   public async Task JoinChannel(CommandContext ctx)
-   {
-       var bot = ctx.Guild.Members[ctx.Client.CurrentUser.Id];
-
-       if (connection == null) await FirstConnect(ctx);
-
-       if (connection.Result.TargetChannel.Id == bot.VoiceState.Channel.Id)
-           return;
-
-
-
-   }
-
-
-   public async Task PlayAudio(CommandContext ctx,string link)
-   {
-
-       await JoinChannel(ctx);
-
-       if(!CheckBotInVc(ctx))
-           return;
-
-       await connection.Result.ResumeAsync();
-       var transmit = connection.Result.GetTransmitSink();
-       var pcm = ConvertAudioToPcm("dayum.mp3");
-       await pcm.CopyToAsync(transmit);
-       await pcm.DisposeAsync();
-   }
-
-   public void StopAudio()
-   {
-       connection.Result.Pause();
-       DisconnectChannel();
-   }
-
-   public void ResumeAudio()
-   {
-       connection.Result.ResumeAsync();
-   }
-
-   public void PauseAudio()
-   {
-       connection.Result.Pause();
-   }
-
-   public void DisconnectChannel()
-   {
-       ffmpegProcess.Kill();
-       connection?.Result?.Disconnect();
-   }
-
-   #region Converter
-   private Stream ConvertAudioToPcm(string filePath)
-   {
-       var ffmpeg = Process.Start(new ProcessStartInfo
-       {
-           FileName = "ffmpeg",
-           Arguments = $@"-i ""{filePath}"" -ac 2 -f s16le -ar 48000 pipe:1",
-           RedirectStandardOutput = true,
-           UseShellExecute = false
-       });
-       ffmpegProcess = ffmpeg;
-       return ffmpeg.StandardOutput.BaseStream;
-   }
-
-   #endregion
-
-   #region EventsFunc
-
-   private async Task FirstConnect(CommandContext ctx)
-   {
-       connection = ctx.Member.VoiceState.Channel.ConnectAsync();
-       await connection;
-
-       connection.Result.UserLeft += ResultOnUserLeft;
-       connection.Result.VoiceSocketErrored += ResultOnVoiceSocketErrored;
-   }
-
-   private bool CheckBotInVc(CommandContext ctx)
-   {
-       var bot = ctx.Guild.Members[ctx.Client.CurrentUser.Id];
-       if (connection == null)
-           return false;
-
-       if (connection.Result.TargetChannel.Id == bot.VoiceState.Channel.Id)
-           return true;
-
-       return false;
-   }
-
-   private Task ResultOnVoiceSocketErrored(VoiceNextConnection sender, SocketErrorEventArgs args)
-   {
-       DisconnectChannel();
-       return Task.CompletedTask;
-   }
-
-   private Task ResultOnUserLeft(VoiceNextConnection sender, VoiceUserLeaveEventArgs args)
-   {
-       DisconnectChannel();
-       return Task.CompletedTask;
-   }
-
-   #endregion
-
-
-*/

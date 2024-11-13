@@ -12,7 +12,7 @@ public class InteractionEvents
     {
         if (e.Interaction.Type != DiscordInteractionType.Component) return;
         if (e.Interaction.User.Id != e.User.Id) return;
-        
+
         var videoId = e.Interaction.Data?.Values?.FirstOrDefault();
 
         if (string.IsNullOrEmpty(videoId))
@@ -25,7 +25,7 @@ public class InteractionEvents
 
         await e.Interaction.CreateResponseAsync(DiscordInteractionResponseType.UpdateMessage,
             new DiscordInteractionResponseBuilder().WithContent("Its can take a while minute"));
-        
+
         try
         {
             var videoDetails = await main.Container.YoutubeService.GetVideoInfoAsync(videoId);

@@ -9,8 +9,8 @@ public interface ITrackService
     Task<bool> ClearTrackAsync(DiscordGuild guild);
     Task<MusicInfo?> SkipTrackAsync(DiscordGuild guild, DiscordChannel channel);
     Task<TrackDto> GetTrackAsync(DiscordGuild guild);
-    
-    Task<TrackDto> RemoveMusicFromTrack(DiscordGuild guild,MusicInfo musicInfo);
-    
-    Task<TrackDto> UpdateTrack(DiscordGuild guild,List<MusicInfo> musicInfo);
+
+    Task<TrackDto> RemoveMusicFromTrack(DiscordGuild guild, MusicInfo musicInfo);
+
+    Task<TrackDto> UpdateTrack(DiscordGuild guild, List<MusicInfo> musicInfo);
 }
