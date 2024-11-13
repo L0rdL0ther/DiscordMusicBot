@@ -1,6 +1,7 @@
 # MozartCakma - Discord Music Bot
 
-`MozartCakma` is a music bot for Discord that allows you to play music in your voice channels. The bot supports streaming music from YouTube links and can be controlled using specific commands.
+`MozartCakma` is a music bot for Discord that allows you to play music in your voice channels. The bot supports
+streaming music from YouTube links and can be controlled using specific commands.
 
 ## Features
 
@@ -11,12 +12,17 @@
 
 ## Important Notes
 
-- This bot has **only been tested on Linux-based systems**. It has **not been tested on Windows**, so there is a risk that it might not work on Windows.
+- This bot has **only been tested on Linux-based systems**. It has **not been tested on Windows**, so there is a risk
+  that it might not work on Windows.
 - The bot currently supports only **YouTube links**. Other platforms are **not supported**.
 - This is **not a stable version**, and there may be bugs or errors.
 - You will need to add a **Bot Token** and **Prefix** in the settings for the bot to work.
-## - A **YouTube API key** is required to search for videos. You can get it by signing up for an account at [RapidAPI YouTube Search and Download API](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download) and adding the key in the settings.
 
+## - A **YouTube API key
+
+** is required to search for videos. You can get it by signing up for an account
+at [RapidAPI YouTube Search and Download API](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download) and adding
+the key in the settings.
 
 ## Features
 
@@ -31,6 +37,7 @@
 Follow these steps to set up and run MozartCakma on Ubuntu:
 
 #### 1. Install Required Dependencies
+
 Start by installing the necessary dependencies:
 
 ```bash
@@ -76,7 +83,8 @@ winget install ffmpeg
 
 ##### Install yt-dlp:
 
-Download and install yt-dlp from the [Official GitHub page](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation).
+Download and install yt-dlp from
+the [Official GitHub page](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation).
 
 After downloading, make sure to place the `yt-dlp` file in the same directory as your bot's executable.
 
@@ -102,7 +110,8 @@ Or, from PowerShell (recommended):
 ./MozartCakma
 ```
 
-**Note**: This has not been fully tested on Windows, so there may be issues. If you encounter any problems, please report them on the GitHub Issues page.
+**Note**: This has not been fully tested on Windows, so there may be issues. If you encounter any problems, please
+report them on the GitHub Issues page.
 
 ---
 
@@ -111,6 +120,7 @@ Or, from PowerShell (recommended):
 Follow these steps to set up and run MozartCakma on Arch Linux:
 
 #### 1. Install Required Dependencies
+
 Start by installing the necessary dependencies on Arch Linux:
 
 ```bash
@@ -150,7 +160,8 @@ Navigate to the project directory and run the .NET application:
 
 ### Docker (Arch Linux)
 
-You can also run MozartCakma using Docker. The **Dockerfile** for Arch Linux is available. You can access it via the link below:
+You can also run MozartCakma using Docker. The **Dockerfile** for Arch Linux is available. You can access it via the
+link below:
 
 [Arch Linux Dockerfile](INSERT_DOCKERFILE_LINK_HERE)
 
@@ -187,7 +198,8 @@ ENTRYPOINT ["./MozartCakma"]
 
 ```
 
-Ensure that your Docker container has the necessary environment variables for the bot to function (Bot Token, Prefix, YouTube API Key).
+Ensure that your Docker container has the necessary environment variables for the bot to function (Bot Token, Prefix,
+YouTube API Key).
 
 
 ---
@@ -207,7 +219,9 @@ To use the bot, you must configure the following settings:
 
 1. **Bot Token**: You must enter your Discord bot token in the configuration file.
 2. **Prefix**: You must define a command prefix (e.g., `!`).
-3. **YouTube API Key**: You need to create an API key from the [RapidAPI YouTube Search and Download API](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download) and add it to the configuration.
+3. **YouTube API Key**: You need to create an API key from
+   the [RapidAPI YouTube Search and Download API](https://rapidapi.com/h0p3rwe/api/youtube-search-and-download) and add
+   it to the configuration.
 
 ### Configuration File
 
@@ -245,4 +259,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions or feedback, feel free to open an issue on the [GitHub Issues page](https://github.com/your-username/MozartCakma/issues).
+If you have any questions or feedback, feel free to open an issue on
+the [GitHub Issues page](https://github.com/your-username/MozartCakma/issues).

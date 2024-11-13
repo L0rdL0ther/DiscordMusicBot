@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using DSharpPlus;
+﻿using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Enums;
@@ -31,11 +28,11 @@ public class Program
     private static async Task Main(string[] args)
     {
         Settings settings = null;
-        
+
         try
         {
             var rawConfigJson = File.ReadAllText(ConfigFileName);
-            Settings configJson = JsonConvert.DeserializeObject<Settings>(rawConfigJson);
+            var configJson = JsonConvert.DeserializeObject<Settings>(rawConfigJson);
             settings = configJson == null ? new Settings() : configJson;
         }
         catch (IOException ex)
@@ -48,29 +45,29 @@ public class Program
             Console.WriteLine($"Error deserializing JSON: {ex.Message}");
             settings = new Settings();
         }
-        
+
         Instance = new Program(new Container(), settings); // Burada Instance atanıyor
         Instance.Container.Initialize();
-        
+
         File.Open(ConfigFileName, FileMode.OpenOrCreate).Close();
         var jsonConfig = JsonConvert.SerializeObject(settings);
         File.WriteAllText(ConfigFileName, jsonConfig);
-        
-        settings.BotToken = settings.BotToken == "YOUR_TOKEN_HERE" 
-            ? System.Environment.GetEnvironmentVariable("BOT_TOKEN") ?? settings.BotToken 
+
+        settings.BotToken = settings.BotToken == "YOUR_TOKEN_HERE"
+            ? Environment.GetEnvironmentVariable("BOT_TOKEN") ?? settings.BotToken
             : settings.BotToken;
 
-        settings.RapidKey = settings.RapidKey == "YOUR_API_KEY_HERE" 
-            ? System.Environment.GetEnvironmentVariable("RAPID_KEY") ?? settings.RapidKey 
+        settings.RapidKey = settings.RapidKey == "YOUR_API_KEY_HERE"
+            ? Environment.GetEnvironmentVariable("RAPID_KEY") ?? settings.RapidKey
             : settings.RapidKey;
-        
-        Console.WriteLine("Your bot token: "+settings.BotToken);
-        Console.WriteLine("Your api key: "+settings.RapidKey);
-        
+
+        Console.WriteLine("Your bot token: " + settings.BotToken);
+        Console.WriteLine("Your api key: " + settings.RapidKey);
+
         var messageEvents = new MessageEvents();
         var interactionEvents = new InteractionEvents();
         var musicEvents = new MusicEvents();
-        
+
         var builder = DiscordClientBuilder.CreateDefault(settings.BotToken, DiscordIntents.All)
             .UseCommandsNext(ex => { ex.RegisterCommands<Command.Command>(); }, new CommandsNextConfiguration
             {

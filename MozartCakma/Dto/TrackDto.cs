@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace MozartCakma.Dto;
 
 public class TrackDto
@@ -15,4 +13,6 @@ public class MusicInfo
     public string FormatedLenght { get; set; }
     public bool Looped { get; set; }
     public bool Playing { get; set; }
+    
+    public bool Skipping { get; set; }
 }

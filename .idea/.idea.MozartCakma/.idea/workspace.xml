@@ -10,6 +10,20 @@
     <list default="true" id="c6432ea0-1dbd-4883-b055-0403c8b1ee72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MozartCakma/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MozartCakma/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/Command/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Command/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Dto/TrackDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Dto/TrackDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Events/InteractionEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Events/InteractionEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Events/MessageEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Events/MessageEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Events/MusicEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Events/MusicEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/FodyWeavers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/FodyWeavers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/MozartCakma.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/MozartCakma.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Read.md" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Read.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Track/ITrackService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Track/ITrackService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Track/TrackService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Track/TrackService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Voice/IVoiceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Voice/IVoiceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Voice/VoiceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Voice/VoiceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Youtube/IYoutubeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Youtube/IYoutubeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Youtube/YoutubeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Youtube/YoutubeService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.dll" afterDir="false" />
@@ -86,7 +100,7 @@
       <workItem from="1731495878017" duration="7447000" />
       <workItem from="1731507275974" duration="2251000" />
       <workItem from="1731512000191" duration="10393000" />
-      <workItem from="1731527569191" duration="872000" />
+      <workItem from="1731527569191" duration="6408000" />
     </task>
     <servers />
   </component>

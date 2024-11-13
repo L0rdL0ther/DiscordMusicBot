@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using MozartCakma.Dto;
 using Newtonsoft.Json.Linq;
 
@@ -18,11 +13,10 @@ public class YoutubeService : IYoutubeService
 
     public async Task<List<YtVideoDto>> Search(string queryT)
     {
-        
         using var client = new HttpClient();
         var requestUrl =
             $"https://youtube-search-and-download.p.rapidapi.com/search?query={Uri.EscapeDataString(queryT)}&type=v";
-        
+
         var request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
         request.Headers.Add("x-rapidapi-host", "youtube-search-and-download.p.rapidapi.com");
         request.Headers.Add("x-rapidapi-key", Config.RapidKey);
@@ -68,7 +62,6 @@ public class YoutubeService : IYoutubeService
             var ytDlp = Process.Start(process);
             var output = ytDlp.StandardOutput.ReadToEnd();
             ytDlp.WaitForExit();
-            Console.WriteLine(output);
             var videoDetails = JObject.Parse(output);
             var title = videoDetails["title"]?.ToString() ?? "Unknown Title";
             var lengthSeconds = videoDetails["duration"]?.ToObject<int>() ?? 0;

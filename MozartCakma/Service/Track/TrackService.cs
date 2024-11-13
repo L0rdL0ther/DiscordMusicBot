@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DSharpPlus.Entities;
 using MozartCakma.Dto;
 
@@ -14,21 +11,32 @@ public class TrackService : ITrackService
 
     public async Task<MusicInfo?> PlayAsync(DiscordGuild guild, DiscordChannel channel, string url)
     {
+        // Guild'teki mevcut track'i bul
         var guildTrack = GuildTracks.Find(x => x.GuildId == guild.Id);
-        var videoInfo = await Main.Container.YoutubeService.GetVideoInfoAsync(url); // Asenkron çağrı
+
+        // URL'den video bilgilerini asenkron olarak al
+        var videoInfo = await Main.Container.YoutubeService.GetVideoInfoAsync(url);
         if (videoInfo == null) return null; // Video bilgisi alınamadıysa null dönebilir
+
+        // Yeni bir MusicInfo nesnesi oluştur
         var music = new MusicInfo
         {
             Looped = false,
-            Title = "",
+            Title = videoInfo.Title,
             Url = url,
             FormatedLenght = videoInfo.FormatedLenght,
-            Playing = guildTrack == null
+            Skipping = false,
+            Playing = false // Yeni eklenen müzik başlangıçta oynatılmıyor
         };
 
+        // Eğer guildTrack bulunmazsa, yani guild için hiç müzik yoksa
         if (guildTrack == null)
         {
+            // Yeni track oluşturup ilk müziği çalmaya başla
+            music.Playing = true; // İlk müzik oynatılacak, sadece buna true ver
             Main.Container.VoiceService.PlayAudio(guild, channel, url); // Asenkron çağrı
+
+            // Yeni track'i listeye ekle
             GuildTracks.Add(new TrackDto
             {
                 GuildId = guild.Id,
@@ -37,9 +45,22 @@ public class TrackService : ITrackService
         }
         else
         {
-            guildTrack.MusicsInfo.Add(music);
+            // Eğer guildTrack mevcutsa ve içinde hiç müzik yoksa, ilk müzik oynatılır
+            if (guildTrack.MusicsInfo.Count < 1)
+            {
+                // İlk müzik ekleniyor, o zaman bu müzik çalınsın
+                music.Playing = true; // İlk müzik oynatılacak, sadece buna true ver
+                Main.Container.VoiceService.PlayAudio(guild, channel, url); // Asenkron çağrı
+                guildTrack.MusicsInfo.Add(music); // Müzik ekleniyor
+            }
+            else
+            {
+                // Eğer başka müzikler eklenmişse, yeni müzik sadece listeye eklenir
+                guildTrack.MusicsInfo.Add(music);
+            }
         }
 
+        // Eklenen müzik nesnesini döndür
         return music;
     }
 
@@ -47,11 +68,9 @@ public class TrackService : ITrackService
     public Task<bool> ClearTrackAsync(DiscordGuild guild)
     {
         var guildTrack = GuildTracks.Find(x => x.GuildId == guild.Id);
-        if (guildTrack != null)
-        {
-            guildTrack.MusicsInfo.Clear();
-            return Task.FromResult(true);
-        }
+
+        guildTrack.MusicsInfo.Clear();
+        return Task.FromResult(true);
 
         return Task.FromResult(false);
     }
@@ -60,15 +79,34 @@ public class TrackService : ITrackService
     {
         var container = Main.Container;
         var guildTrack = GuildTracks.Find(x => x.GuildId == guild.Id);
-        if (guildTrack != null)
+
+        // Eğer guildTrack mevcutsa, müzik listesini kontrol et
+        if (guildTrack != null && guildTrack.MusicsInfo.Count > 0)
         {
-            guildTrack.MusicsInfo.Remove(guildTrack.MusicsInfo.First());
-            await container.VoiceService.PlayAudio(guild, channel, guildTrack.MusicsInfo.First().Url); // Asenkron çağrı
-            return guildTrack.MusicsInfo.First();
+            // İlk müziği kaldır (skip işlemi)
+            var oldMUsic = guildTrack.MusicsInfo[0]; // İlk müziği çıkarıyoruz
+
+            // Eğer listede hala müzik varsa, onu çal
+            if (guildTrack.MusicsInfo.Count > 0)
+            {
+                oldMUsic.Skipping = true;
+                var nextTrack = guildTrack.MusicsInfo[1]; // Yeni çalınacak müzik
+                container.VoiceService.PlayAudio(guild, channel, nextTrack.Url); // Asenkron çağrı
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                guildTrack.MusicsInfo.RemoveAt(0);
+                return nextTrack;
+            }
+
+            // Eğer track listesi boşsa, sesli çalma durur
+            // Burada herhangi bir şey yapmaya gerek yok çünkü müzik bitmiş olur
+            ClearTrackAsync(guild);
+            return null;
         }
 
+        // Eğer guildTrack yoksa ya da müzik listesi boşsa, hiçbir şey yapma
         return null;
     }
+
 
     public Task<TrackDto> GetTrackAsync(DiscordGuild guild)
     {
