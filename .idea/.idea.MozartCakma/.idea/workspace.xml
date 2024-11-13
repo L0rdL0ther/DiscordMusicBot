@@ -16,6 +16,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///usr/share/dotnet/sdk/8.0.110/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -67,7 +70,7 @@
       <updated>1729768261619</updated>
       <workItem from="1729768262922" duration="334000" />
       <workItem from="1729769208346" duration="2026000" />
-      <workItem from="1731495878017" duration="6073000" />
+      <workItem from="1731495878017" duration="6429000" />
     </task>
     <servers />
   </component>
