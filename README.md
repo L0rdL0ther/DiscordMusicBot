@@ -152,7 +152,7 @@ Navigate to the project directory and run the .NET application:
 
 You can also run MozartCakma using Docker. The **Dockerfile** for Arch Linux is available. You can access it via the link below:
 
-[Arch Linux Dockerfile](INSERT_DOCKERFILE_LINK_HERE)
+Arch Linux Dockerfile
 
 Make sure Docker is installed on your system, and follow these steps:
 
@@ -199,7 +199,6 @@ Once the bot is running, you can use the following commands:
 - `!search <query>`: Search for a song on YouTube.
 - `!play <YouTube URL>`: Play music from a YouTube link.
 - `!stop`: Stop the current song and clear the track.
-- `!skip`: Skip to the next track (if available).
 
 ### Bot Settings
 
@@ -239,10 +238,10 @@ If you'd like to contribute to the `MozartCakma` project, please follow these st
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/L0rdL0ther/DiscordMusicBot/blob/main/LICENSE).
 
 ---
 
 ## Contact
 
-If you have any questions or feedback, feel free to open an issue on the [GitHub Issues page](https://github.com/your-username/MozartCakma/issues).
+If you have any questions or feedback, feel free to open an issue on the [GitHub Issues page](https://github.com/L0rdL0ther/DiscordMusicBot/issues).
