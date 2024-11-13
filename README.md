@@ -148,12 +148,56 @@ Navigate to the project directory and run the .NET application:
 
 ---
 
+### Docker (Arch Linux)
+
+You can also run MozartCakma using Docker. The **Dockerfile** for Arch Linux is available. You can access it via the link below:
+
+[Arch Linux Dockerfile](INSERT_DOCKERFILE_LINK_HERE)
+
+Make sure Docker is installed on your system, and follow these steps:
+
+```bash
+# Start with a base image that is based on Arch Linux
+FROM archlinux:latest AS runtime
+
+# Update the system and install necessary dependencies
+RUN pacman -Syu --noconfirm && pacman -S --noconfirm \
+    ffmpeg \
+    opus \
+    libsodium \
+    yt-dlp \
+    glibc \
+    gcc-libs \
+    && pacman -Scc --noconfirm  # Clean up unnecessary files
+
+# Install .NET 8.0 SDK and Runtime on Arch Linux
+RUN pacman -S --noconfirm \
+    dotnet-sdk-8.0 \
+    dotnet-runtime-8.0 \
+    mono
+
+# Set the working directory
+WORKDIR /app
+
+# Copy all project files from the local directory into the Docker container
+COPY ./ /app/
+
+# Start the "MozartCakma" executable
+ENTRYPOINT ["./MozartCakma"]
+
+```
+
+Ensure that your Docker container has the necessary environment variables for the bot to function (Bot Token, Prefix, YouTube API Key).
+
+
+---
+
 ## Usage
 
 Once the bot is running, you can use the following commands:
 
 - `!search <query>`: Search for a song on YouTube.
-- `!play <YouTube URL / Title> `: Play music from a YouTube link.
+- `!play <YouTube URL>`: Play music from a YouTube link.
 - `!stop`: Stop the current song and clear the track.
 - `!skip`: Skip to the next track (if available).
 
