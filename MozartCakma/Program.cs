@@ -1,4 +1,7 @@
-﻿using DSharpPlus;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Enums;
