@@ -46,6 +46,11 @@ sudo apt install ffmpeg
 
 [Install .NET SDK 8.0 on Ubuntu](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-install?tabs=dotnet9&pivots=os-linux-ubuntu-2410)
 
+```bash
+sudo apt-get update && \
+  sudo apt-get install -y aspnetcore-runtime-8.0
+```
+
 #### 3. Run the Project
 
 To run the bot:
