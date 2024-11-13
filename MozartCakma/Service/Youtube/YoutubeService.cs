@@ -68,6 +68,7 @@ public class YoutubeService : IYoutubeService
             var ytDlp = Process.Start(process);
             var output = ytDlp.StandardOutput.ReadToEnd();
             ytDlp.WaitForExit();
+            Console.WriteLine(output);
             var videoDetails = JObject.Parse(output);
             var title = videoDetails["title"]?.ToString() ?? "Unknown Title";
             var lengthSeconds = videoDetails["duration"]?.ToObject<int>() ?? 0;
