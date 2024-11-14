@@ -9,21 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c6432ea0-1dbd-4883-b055-0403c8b1ee72" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MozartCakma/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MozartCakma/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Command/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Command/Command.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Dto/TrackDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Dto/TrackDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Events/InteractionEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Events/InteractionEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Events/MessageEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Events/MessageEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Events/MusicEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Events/MusicEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/FodyWeavers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/FodyWeavers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/MozartCakma.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/MozartCakma.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Read.md" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Read.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Track/ITrackService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Track/ITrackService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Track/TrackService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Track/TrackService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Voice/IVoiceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Voice/IVoiceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Voice/VoiceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Voice/VoiceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Youtube/IYoutubeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Youtube/IYoutubeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MozartCakma/Service/Youtube/YoutubeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/Service/Youtube/YoutubeService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.dll" afterDir="false" />
@@ -31,6 +19,8 @@
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/MozartCakma.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/ref/MozartCakma.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/ref/MozartCakma.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/refint/MozartCakma.dll" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/Debug/net8.0/refint/MozartCakma.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MozartCakma/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/MozartCakma/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +34,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/14a2b70486934722acea07b38045413ab2d200/d7/31c1239a/SafeFileHandle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///usr/share/dotnet/sdk/8.0.110/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -101,6 +92,8 @@
       <workItem from="1731507275974" duration="2251000" />
       <workItem from="1731512000191" duration="10393000" />
       <workItem from="1731527569191" duration="6408000" />
+      <workItem from="1731582040365" duration="1893000" />
+      <workItem from="1731584024737" duration="7311000" />
     </task>
     <servers />
   </component>
@@ -110,5 +103,17 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="System.UnauthorizedAccessException" isInternal="false" displayValue="UnauthorizedAccessException" namespaceName="System">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

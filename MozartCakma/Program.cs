@@ -1,4 +1,5 @@
-﻿using DSharpPlus;
+﻿using System.Net;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Enums;
@@ -64,10 +65,18 @@ public class Program
         Console.WriteLine("Your bot token: " + settings.BotToken);
         Console.WriteLine("Your api key: " + settings.RapidKey);
 
+        using (WebClient wc = new WebClient())
+        {
+            var rawIp = wc.DownloadString("http://api.ipify.org/");
+            Console.WriteLine("Your Ip Address: "+rawIp);
+        }
+        
         var messageEvents = new MessageEvents();
         var interactionEvents = new InteractionEvents();
         var musicEvents = new MusicEvents();
-
+        
+        Console.WriteLine("Hello :D");
+        
         var builder = DiscordClientBuilder.CreateDefault(settings.BotToken, DiscordIntents.All)
             .UseCommandsNext(ex => { ex.RegisterCommands<Command.Command>(); }, new CommandsNextConfiguration
             {
